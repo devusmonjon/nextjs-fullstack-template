@@ -1,0 +1,20 @@
+{
+  "HomePage": {
+    "title": "Loyiha muvaffaqiyatli o'rnatildi!",
+    "about": "Ushbu faylga o'zgartirishlar kiritib, bosh sahifani o'zgartirishingiz mumkin."
+  },
+  "system": {
+    "status": {
+      "active": "Faol",
+      "inactive": "Faol emas"
+    },
+    "version": "Versiya",
+    "last_updated": "Oxirgi yangilanish",
+    "search": "Qidirish"
+  },
+    "navbar": {
+    "profile": "Profil",
+    "settings": "Sozlamalar",
+    "logout": "Chiqish"
+  }
+}

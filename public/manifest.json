@@ -1,0 +1,32 @@
+{
+  "name": "Grandpharm Templates",
+  "short_name": "Grandpharm",
+  "description": "Grandpharm sms Templates",
+  "lang": "uz",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1f2937",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "/globe.svg",
+      "sizes": "150x150",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-wide.png",
+      "type": "image/png",
+      "sizes": "1919x1080",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshots/mobile-portrait.png",
+      "type": "image/png",
+      "sizes": "359x776",
+      "form_factor": "narrow"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "HomePage": {
+    "title": "Project setup successfully!",
+    "about": "You can make changes in this file to change the home page."
+  },
+  "system": {
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "version": "Version",
+    "last_updated": "Last update",
+    "search": "Search"
+  },
+    "navbar": {
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout"
+  }
+}
