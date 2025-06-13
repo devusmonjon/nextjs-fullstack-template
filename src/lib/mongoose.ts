@@ -30,25 +30,18 @@ export const connectToDatabase = async () => {
     const admins_count = await User.countDocuments();
     console.log(admins_count);
     if (admins_count === 0) {
-      const passwordHash = await hash("admin", 10);
-      await User.create({
-        fullName: "Superadmin",
-        email: "admin@gmail.com",
+      const password = process.env.ADMIN_PASSWORD;
+      const passwordHash = await hash(password!, 10);
+      const user = {
+        fullName: process.env.ADMIN_NAME || "Superadmin",
+        email: process.env.ADMIN_EMAIL || "admin@gmail.com",
         password: passwordHash,
         role: "admin",
-      });
+      };
+      await User.create();
       console.log(
         "Default Admin successfully created: ",
-        JSON.stringify(
-          {
-            fullName: "Superadmin",
-            email: "admin@gmail.com",
-            password: "admin",
-            role: "admin",
-          },
-          null,
-          2
-        )
+        JSON.stringify({ ...user, password }, null, 2)
       );
     }
   } catch (err) {
