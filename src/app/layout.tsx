@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Grandpharm Templates",
   description: "Grandpharm sms Templates",
-  manifest: "./manifest.json",
+  manifest: "/manifest.json",
 };
 
 export function generateStaticParams() {
