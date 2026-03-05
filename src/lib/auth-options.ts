@@ -2,7 +2,12 @@ import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { connectToDatabase } from "./mongoose";
 import User from "@/database/user.model";
-import { compare, hash } from "bcrypt";
+import { compare } from "bcrypt";
+import {
+  centralResumeLogin,
+  centralResumeRegister,
+  mapCentralResumeSession,
+} from "@/lib/central-auth";
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -22,40 +27,93 @@ export const authOptions: AuthOptions = {
       },
       async authorize(credentials) {
         await connectToDatabase();
-        // console.log(credentials);
-        const user = await User.findOne({ email: credentials?.email });
 
-        if (user) {
-          const isPasswordValid = await compare(
-            credentials?.password || "",
-            user.password
-          );
+        const email = String(credentials?.email || "").trim().toLowerCase();
+        const password = String(credentials?.password || "");
 
-          if (isPasswordValid) {
-            return user;
+        if (!email || !password) {
+          return null;
+        }
+
+        const localUser = await User.findOne({ email });
+        const localPasswordValid = localUser
+          ? await compare(password, localUser.password)
+          : false;
+
+        try {
+          const central = await centralResumeLogin({
+            identifier: email,
+            password,
+          });
+
+          return mapCentralResumeSession(central);
+        } catch {
+          if (!localUser || !localPasswordValid) {
+            return null;
+          }
+
+          try {
+            await centralResumeRegister({
+              login: email,
+              password,
+              displayName: localUser.fullName,
+              links: [
+                {
+                  project: "audit-resume",
+                  localUserId: localUser._id.toString(),
+                  role: localUser.role,
+                  profileSnapshot: {
+                    fullName: localUser.fullName,
+                    email: localUser.email,
+                    role: localUser.role,
+                  },
+                },
+              ],
+            });
+
+            const central = await centralResumeLogin({
+              identifier: email,
+              password,
+            });
+
+            return mapCentralResumeSession(central);
+          } catch {
+            return null;
           }
         }
-        return null;
       },
     }),
   ],
   callbacks: {
-    async session({ session }) {
-      await connectToDatabase();
-      const isExistingUser = await User.findOne({
-        email: session.user?.email,
-      });
-
-      console.log(session.user, "email");
+    async jwt({ token, user }) {
+      if (user) {
+        token._id = user._id;
+        token.fullName = user.fullName;
+        token.email = user.email;
+        token.role = user.role;
+        token.audit_coins = user.audit_coins;
+        token.balance = user.balance;
+        token.accessToken = user.accessToken;
+        token.refreshToken = user.refreshToken;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (!session.user) {
+        return session;
+      }
 
       session.user = {
-        _id: isExistingUser?._id,
-        email: isExistingUser?.email,
-        fullName: isExistingUser?.fullName,
-        role: isExistingUser?.role,
+        ...session.user,
+        _id: token._id as string,
+        email: token.email as string,
+        fullName: token.fullName as string,
+        role: token.role as "admin" | "user" | "employer",
+        audit_coins: token.audit_coins as number | undefined,
+        balance: token.balance as number | undefined,
+        accessToken: token.accessToken as string | undefined,
+        refreshToken: token.refreshToken as string | undefined,
       };
-
-      console.log(session);
 
       return session;
     },
@@ -66,13 +124,4 @@ export const authOptions: AuthOptions = {
     secret: process.env.NEXTAUTH_JWT_SECRET,
   },
   secret: process.env.NEXTAUTH_SECRET,
-
-  // pages for customize
-  // pages: {
-  //   signIn: "/auth/signin",
-  //   signOut: "/auth/signout",
-  //   error: "/auth/error", // Error code passed in query string as ?error=
-  //   verifyRequest: "/auth/verify-request", // (used for check email message)
-  //   newUser: "/auth/new-user", // New users will be directed here on first sign in (leave the property out if not of interest)
-  // },
 };

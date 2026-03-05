@@ -1,7 +1,7 @@
 {
   "HomePage": {
-    "title": "Project setup successfully!",
-    "about": "You can make changes in this file to change the home page."
+    "title": "Welcome!",
+    "subtitle": "Choose where you want to continue"
   },
   "system": {
     "status": {
@@ -12,9 +12,103 @@
     "last_updated": "Last update",
     "search": "Search"
   },
-    "navbar": {
+  "navbar": {
     "profile": "Profile",
     "settings": "Settings",
-    "logout": "Logout"
+    "logout": "Logout",
+    "vacancies": "Vacancies",
+    "resumes": "Resumes",
+    "wishlist": "Wishlist",
+    "postVacancy": "Post vacancy",
+    "myResume": "My resume"
+  },
+  "auth": {
+    "loginTitle": "Sign in",
+    "loginSubtitle": "Access your account to continue",
+    "registerTitle": "Create account",
+    "registerSubtitle": "Start with a few quick details",
+    "fullName": "Full name",
+    "email": "Email",
+    "password": "Password",
+    "roleQuestion": "Are you looking for a job or hiring?",
+    "roleUser": "I am looking for a job",
+    "roleUserHint": "Create a resume and browse vacancies",
+    "roleEmployer": "I am hiring",
+    "roleEmployerHint": "Post vacancies and review resumes",
+    "createAccount": "Create account",
+    "creating": "Creating...",
+    "signIn": "Sign in",
+    "signingIn": "Signing in...",
+    "noAccount": "Don't have an account?",
+    "goRegister": "Register",
+    "haveAccount": "Already have an account?",
+    "goLogin": "Sign in",
+    "invalidCredentials": "Invalid email or password",
+    "errorGeneric": "Something went wrong. Try again."
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "saving": "Saving..."
+  },
+  "resume": {
+    "title": "My resume",
+    "subtitle": "Fill in and keep your profile updated",
+    "saved": "Resume saved",
+    "basicInfo": "Basic information",
+    "fullName": "Full name",
+    "titleLabel": "Role title (e.g. Frontend Developer)",
+    "location": "Location",
+    "phone": "Phone",
+    "email": "Email",
+    "summary": "Short summary",
+    "skills": "Skills (comma separated)",
+    "resumeUrl": "Resume link (optional)",
+    "experience": "Experience",
+    "addExperience": "Add experience",
+    "company": "Company",
+    "position": "Position",
+    "start": "Start",
+    "end": "End",
+    "description": "Description",
+    "education": "Education",
+    "addEducation": "Add education",
+    "school": "School",
+    "degree": "Degree",
+    "remove": "Remove",
+    "browseTitle": "Resume library",
+    "browseSubtitle": "Review candidate resumes",
+    "empty": "No resumes yet",
+    "openResume": "Open resume",
+    "addWishlist": "Save to wishlist",
+    "removeWishlist": "Remove from wishlist",
+    "viewDetails": "View details",
+    "notProvided": "Not provided",
+    "errorGeneric": "Could not save the resume"
+  },
+  "vacancy": {
+    "title": "Vacancies",
+    "subtitle": "Latest job opportunities",
+    "employerHint": "Post vacancy",
+    "empty": "No vacancies yet",
+    "requirements": "Requirements",
+    "postedBy": "Posted by",
+    "postTitle": "Post a vacancy",
+    "postSubtitle": "Share details about the new role",
+    "posted": "Vacancy published",
+    "titleLabel": "Job title",
+    "company": "Company",
+    "location": "Location",
+    "salary": "Salary (optional)",
+    "description": "Vacancy description",
+    "publish": "Publish",
+    "yourVacancies": "Your vacancies",
+    "emptyEmployer": "You haven't posted any vacancies",
+    "errorGeneric": "Could not publish vacancy"
+  },
+  "wishlist": {
+    "title": "Wishlist",
+    "subtitle": "Saved resumes",
+    "empty": "Wishlist is empty"
   }
 }

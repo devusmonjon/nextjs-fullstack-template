@@ -1,22 +1,43 @@
 "use client";
-import Header from "@/components/header";
+
+import { useEffect, type ReactNode } from "react";
 import { useSession } from "next-auth/react";
-import React, { FC } from "react";
+import { useParams, useRouter } from "next/navigation";
+import Header from "@/components/header";
 
 interface PageProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-const RootLayout: FC<PageProps> = ({ children }) => {
-  const session = useSession({
-    required: true,
-  });
+const RootLayout = ({ children }: PageProps) => {
+  const { status } = useSession();
+  const router = useRouter();
+  const params = useParams();
+  const locale =
+    typeof params?.locale === "string" ? params.locale : "uz";
 
-  console.log(session);
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.replace(`/${locale}/auth/login`);
+    }
+  }, [status, locale, router]);
+
+  if (status === "loading") {
+    return (
+      <div className='min-h-screen bg-slate-50 px-4 py-10 text-sm text-slate-500'>
+        Yuklanmoqda...
+      </div>
+    );
+  }
+
+  if (status === "unauthenticated") {
+    return null;
+  }
+
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className='min-h-screen bg-slate-50'>{children}</main>
     </>
   );
 };

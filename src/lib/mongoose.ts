@@ -38,7 +38,7 @@ export const connectToDatabase = async () => {
         password: passwordHash,
         role: "admin",
       };
-      await User.create();
+      await User.create(user);
       console.log(
         "Default Admin successfully created: ",
         JSON.stringify({ ...user, password }, null, 2)

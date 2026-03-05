@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
-import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
-import { SessionProvider } from "next-auth/react";
+import { getLocale, getMessages, setRequestLocale } from "next-intl/server";
+import type { ReactNode } from "react";
 import Provider from "./provider";
 
 const geistSans = Geist({
@@ -19,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Grandpharm Templates",
-  description: "Grandpharm sms Templates",
+  title: "Audit Resume",
+  description: "Audit Resume",
   manifest: "/manifest.json",
 };
 
@@ -30,30 +29,20 @@ export function generateStaticParams() {
 
 export default async function RootLayout({
   children,
-  params,
 }: Readonly<{
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  children: ReactNode;
 }>) {
-  // Ensure that the incoming `locale` is valid
-  const { locale } = await params;
-  // if (!hasLocale(routing.locales, locale)) {
-  //   return (
-  //     <html suppressHydrationWarning>
-  //       {" "}
-  //       <body>Something went wrong</body>
-  //     </html>
-  //   );
-  // }
+  const locale = await getLocale();
 
   setRequestLocale(locale);
+  const messages = await getMessages();
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages} locale={locale}>
           <Provider>{children}</Provider>
         </NextIntlClientProvider>
       </body>

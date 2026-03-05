@@ -1,7 +1,7 @@
 {
-  "name": "Grandpharm Templates",
-  "short_name": "Grandpharm",
-  "description": "Grandpharm sms Templates",
+  "name": "Audit Resume",
+  "short_name": "Audit Resume",
+  "description": "Audit Resume",
   "lang": "uz",
   "start_url": "/",
   "display": "standalone",

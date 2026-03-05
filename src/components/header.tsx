@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { User, Bell, Search, Settings, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,9 +18,22 @@ export default function Header() {
   const systemLang = useTranslations("system");
   const navbarLang = useTranslations("navbar");
 
-  const session = useSession({
-    required: true,
-  });
+  const session = useSession();
+  const role = session.data?.user?.role;
+  const isEmployer = role === "employer" || role === "admin";
+  const navItems = role
+    ? isEmployer
+      ? [
+          { href: "/employer/resumes", label: navbarLang("resumes") },
+          { href: "/employer/wishlist", label: navbarLang("wishlist") },
+          { href: "/employer/vacancies", label: navbarLang("postVacancy") },
+          { href: "/vacancies", label: navbarLang("vacancies") },
+        ]
+      : [
+          { href: "/vacancies", label: navbarLang("vacancies") },
+          { href: "/resume", label: navbarLang("myResume") },
+        ]
+    : [];
 
   return (
     <header className='sticky top-0 z-50 w-full bg-white border-b shadow-sm'>
@@ -31,7 +44,7 @@ export default function Header() {
               <div className='bg-white p-1 rounded-lg shadow-sm'>
                 <Image
                   src='/globe.svg'
-                  alt='GRANDPHARM Logo'
+                  alt='Audit Resume Logo'
                   width={32}
                   height={32}
                   className='h-8 w-8'
@@ -87,7 +100,9 @@ export default function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align='end' className='w-48'>
                 <DropdownMenuLabel>
-                  {session.data?.user?.fullName}
+                  {session.data?.user?.fullName ||
+                    session.data?.user?.email ||
+                    navbarLang("profile")}
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
@@ -111,8 +126,8 @@ export default function Header() {
         </div>
       </div>
 
-      <div className='bg-blue-900 px-4 py-1'>
-        <div className='container flex justify-between items-center text-xs text-white/80 mx-auto'>
+      <div className='bg-blue-900 px-4 py-2'>
+        <div className='container flex flex-wrap items-center justify-between gap-3 text-xs text-white/80 mx-auto'>
           <div className='flex items-center gap-4'>
             <span className='flex items-center gap-1'>
               <div className='h-1.5 w-1.5 bg-green-400 rounded-full'></div>
@@ -120,6 +135,19 @@ export default function Header() {
             </span>
             <span>{systemLang("version")} 2.3.0</span>
           </div>
+          {navItems.length > 0 && (
+            <div className='flex flex-wrap items-center gap-3'>
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className='rounded-full bg-white/10 px-3 py-1 text-white hover:bg-white/20'
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          )}
           <span>{systemLang("last_updated")}: 23.05.2025</span>
         </div>
       </div>

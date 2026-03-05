@@ -1,7 +1,7 @@
 {
   "HomePage": {
-    "title": "Проект успешно настроен!",
-    "about": "Вы можете внести изменения в этот файл, чтобы изменить домашнюю страницу."
+    "title": "Добро пожаловать!",
+    "subtitle": "Выберите, куда хотите перейти"
   },
   "system": {
     "status": {
@@ -14,7 +14,101 @@
   },
   "navbar": {
     "profile": "Профиль",
-    "settings": "Настройки",
-    "logout": "Выход"
+    "settings": "Настройки",
+    "logout": "Выход",
+    "vacancies": "Вакансии",
+    "resumes": "Резюме",
+    "wishlist": "Wishlist",
+    "postVacancy": "Разместить вакансию",
+    "myResume": "Мое резюме"
+  },
+  "auth": {
+    "loginTitle": "Вход",
+    "loginSubtitle": "Войдите в свой аккаунт",
+    "registerTitle": "Регистрация",
+    "registerSubtitle": "Заполните несколько деталей",
+    "fullName": "Полное имя",
+    "email": "Email",
+    "password": "Пароль",
+    "roleQuestion": "Вы ищете работу или нанимаете?",
+    "roleUser": "Ищу работу",
+    "roleUserHint": "Создайте резюме и просматривайте вакансии",
+    "roleEmployer": "Ищу сотрудников",
+    "roleEmployerHint": "Размещайте вакансии и просматривайте резюме",
+    "createAccount": "Создать аккаунт",
+    "creating": "Создание...",
+    "signIn": "Войти",
+    "signingIn": "Вход...",
+    "noAccount": "Нет аккаунта?",
+    "goRegister": "Зарегистрироваться",
+    "haveAccount": "Уже есть аккаунт?",
+    "goLogin": "Войти",
+    "invalidCredentials": "Неверный email или пароль",
+    "errorGeneric": "Произошла ошибка. Попробуйте снова."
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "save": "Сохранить",
+    "saving": "Сохранение..."
+  },
+  "resume": {
+    "title": "Мое резюме",
+    "subtitle": "Заполните и обновляйте профиль",
+    "saved": "Резюме сохранено",
+    "basicInfo": "Основная информация",
+    "fullName": "Полное имя",
+    "titleLabel": "Должность (например, Frontend Developer)",
+    "location": "Локация",
+    "phone": "Телефон",
+    "email": "Email",
+    "summary": "Краткое описание",
+    "skills": "Навыки (через запятую)",
+    "resumeUrl": "Ссылка на резюме (необязательно)",
+    "experience": "Опыт работы",
+    "addExperience": "Добавить опыт",
+    "company": "Компания",
+    "position": "Должность",
+    "start": "Начало",
+    "end": "Окончание",
+    "description": "Описание",
+    "education": "Образование",
+    "addEducation": "Добавить образование",
+    "school": "Учебное заведение",
+    "degree": "Степень / направление",
+    "remove": "Удалить",
+    "browseTitle": "База резюме",
+    "browseSubtitle": "Просматривайте резюме кандидатов",
+    "empty": "Резюме пока нет",
+    "openResume": "Открыть резюме",
+    "addWishlist": "В wishlist",
+    "removeWishlist": "Убрать из wishlist",
+    "viewDetails": "Подробнее",
+    "notProvided": "Не указано",
+    "errorGeneric": "Не удалось сохранить резюме"
+  },
+  "vacancy": {
+    "title": "Вакансии",
+    "subtitle": "Актуальные вакансии",
+    "employerHint": "Разместить вакансию",
+    "empty": "Вакансий пока нет",
+    "requirements": "Требования",
+    "postedBy": "Разместил",
+    "postTitle": "Разместить вакансию",
+    "postSubtitle": "Добавьте информацию о вакансии",
+    "posted": "Вакансия опубликована",
+    "titleLabel": "Название вакансии",
+    "company": "Компания",
+    "location": "Локация",
+    "salary": "Зарплата (необязательно)",
+    "description": "Описание вакансии",
+    "publish": "Опубликовать",
+    "yourVacancies": "Ваши вакансии",
+    "emptyEmployer": "Вы еще не разместили вакансии",
+    "errorGeneric": "Не удалось опубликовать вакансию"
+  },
+  "wishlist": {
+    "title": "Wishlist",
+    "subtitle": "Сохраненные резюме",
+    "empty": "Wishlist пуст"
   }
 }

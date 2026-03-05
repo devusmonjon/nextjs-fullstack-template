@@ -1,7 +1,7 @@
 {
   "HomePage": {
-    "title": "Loyiha muvaffaqiyatli o'rnatildi!",
-    "about": "Ushbu faylga o'zgartirishlar kiritib, bosh sahifani o'zgartirishingiz mumkin."
+    "title": "Xush kelibsiz!",
+    "subtitle": "Davom etish uchun kerakli bo'limni tanlang"
   },
   "system": {
     "status": {
@@ -12,9 +12,103 @@
     "last_updated": "Oxirgi yangilanish",
     "search": "Qidirish"
   },
-    "navbar": {
+  "navbar": {
     "profile": "Profil",
     "settings": "Sozlamalar",
-    "logout": "Chiqish"
+    "logout": "Chiqish",
+    "vacancies": "Vakansiyalar",
+    "resumes": "Rezyumelar",
+    "wishlist": "Wishlist",
+    "postVacancy": "Vakansiya joylash",
+    "myResume": "Mening rezyumem"
+  },
+  "auth": {
+    "loginTitle": "Tizimga kirish",
+    "loginSubtitle": "Davom etish uchun hisobingizga kiring",
+    "registerTitle": "Ro'yxatdan o'tish",
+    "registerSubtitle": "Qisqa ma'lumotlar bilan profil yarating",
+    "fullName": "To'liq ism",
+    "email": "Email",
+    "password": "Parol",
+    "roleQuestion": "Siz ish qidiryapsizmi yoki ishchi izlayapsizmi?",
+    "roleUser": "Ish qidiryapman",
+    "roleUserHint": "Resume yaratib, vakansiyalarni ko'ring",
+    "roleEmployer": "Ishchi izlayapman",
+    "roleEmployerHint": "Vakansiya joylang va resume ko'rib chiqing",
+    "createAccount": "Hisob yaratish",
+    "creating": "Yaratilmoqda...",
+    "signIn": "Kirish",
+    "signingIn": "Kirilmoqda...",
+    "noAccount": "Hisobingiz yo'qmi?",
+    "goRegister": "Ro'yxatdan o'ting",
+    "haveAccount": "Allaqachon hisobingiz bormi?",
+    "goLogin": "Kirish",
+    "invalidCredentials": "Email yoki parol xato",
+    "errorGeneric": "Xatolik yuz berdi. Qayta urinib ko'ring."
+  },
+  "common": {
+    "loading": "Yuklanmoqda...",
+    "save": "Saqlash",
+    "saving": "Saqlanmoqda..."
+  },
+  "resume": {
+    "title": "Mening rezyumem",
+    "subtitle": "Profilingizni to'ldiring va yangilang",
+    "saved": "Rezyume saqlandi",
+    "basicInfo": "Asosiy ma'lumotlar",
+    "fullName": "To'liq ism",
+    "titleLabel": "Lavozim (masalan, Frontend Developer)",
+    "location": "Manzil",
+    "phone": "Telefon",
+    "email": "Email",
+    "summary": "Qisqacha ma'lumot",
+    "skills": "Ko'nikmalar (vergul bilan)",
+    "resumeUrl": "Resume havolasi (ixtiyoriy)",
+    "experience": "Ish tajribasi",
+    "addExperience": "Tajriba qo'shish",
+    "company": "Kompaniya",
+    "position": "Lavozim",
+    "start": "Boshlanish",
+    "end": "Tugash",
+    "description": "Tavsif",
+    "education": "Ta'lim",
+    "addEducation": "Ta'lim qo'shish",
+    "school": "O'quv yurti",
+    "degree": "Daraja / yo'nalish",
+    "remove": "O'chirish",
+    "browseTitle": "Rezyumelar bazasi",
+    "browseSubtitle": "Ishchilar rezyumelarini ko'rib chiqing",
+    "empty": "Hozircha rezyume yo'q",
+    "openResume": "Resume ko'rish",
+    "addWishlist": "Wishlistga qo'shish",
+    "removeWishlist": "Wishlistdan o'chirish",
+    "viewDetails": "Batafsil",
+    "notProvided": "Ko'rsatilmagan",
+    "errorGeneric": "Ma'lumotni saqlab bo'lmadi"
+  },
+  "vacancy": {
+    "title": "Vakansiyalar",
+    "subtitle": "Eng yangi ish imkoniyatlari",
+    "employerHint": "Vakansiya joylash",
+    "empty": "Hozircha vakansiya yo'q",
+    "requirements": "Talablar",
+    "postedBy": "Joylagan",
+    "postTitle": "Vakansiya joylash",
+    "postSubtitle": "Yangi ish o'rni haqida ma'lumot kiriting",
+    "posted": "Vakansiya joylandi",
+    "titleLabel": "Lavozim nomi",
+    "company": "Kompaniya",
+    "location": "Manzil",
+    "salary": "Maosh (ixtiyoriy)",
+    "description": "Vakansiya tavsifi",
+    "publish": "E'lon qilish",
+    "yourVacancies": "Siz joylagan vakansiyalar",
+    "emptyEmployer": "Siz hali vakansiya joylamagansiz",
+    "errorGeneric": "Vakansiya yaratishda xatolik"
+  },
+  "wishlist": {
+    "title": "Wishlist",
+    "subtitle": "Saqlangan rezyumelar",
+    "empty": "Wishlist bo'sh"
   }
 }
